@@ -38,6 +38,11 @@ public class AspectV6Advice {
         log.info("[return] {} return={}", joinPoint.getSignature(), result);
     }
 
+    @AfterReturning(value="study.developia.springaopstudy.order.aop.Pointcuts.allOrder()", returning = "result")
+    public void doReturn2(JoinPoint joinPoint, Object result) {
+        log.info("[return2] {} return={}", joinPoint.getSignature(), result);
+    }
+
     @AfterThrowing(value="study.developia.springaopstudy.order.aop.Pointcuts.orderAndService()", throwing = "ex")
     public void doThrowing(JoinPoint joinPoint, Exception ex) {
         log.info("[ex] {} message={}", joinPoint.getSignature(), ex);
